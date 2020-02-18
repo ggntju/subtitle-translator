@@ -1,5 +1,148 @@
 
-您将了解Kotlin的表情
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.066
+Hi. Welcome to the Kotlin for Java Developers course.
+
+2
+00:00:04.066 --> 00:00:05.733
+My name is Svetlana Isakova,
+
+3
+00:00:05.733 --> 00:00:07.666
+I’ll be your instructor for this course.
+
+4
+00:00:07.833 --> 00:00:12.866
+I'm a developer advocate at JetBrains and
+the co-author of two books about Kotlin,
+
+5
+00:00:12.866 --> 00:00:14.800
+”Kotlin in Action", and "Atomic Kotlin”.
+
+6
+00:00:15.133 --> 00:00:21.533
+This course is for you if you're an experienced developer
+who knows Java and wants to learn Kotlin.
+
+7
+00:00:21.533 --> 00:00:25.866
+I won’t explain programming fundamentals or Java basics.
+
+8
+00:00:25.866 --> 00:00:29.033
+I will only highlight what is new and different.
+
+9
+00:00:29.033 --> 00:00:32.500
+After this course, you'll be able to use Kotlin for your daily tasks.
+
+10
+00:00:32.833 --> 00:00:40.233
+If you're a developer who learned Java many years ago
+and now uses some other languages,
+
+11
+00:00:40.233 --> 00:00:42.100
+you may still decide to watch this course.
+
+12
+00:00:42.100 --> 00:00:49.466
+However, note that you may need to check some Java concepts
+on your own in order to better understand what's going on.
+
+13
+00:00:50.466 --> 00:00:55.933
+This course will consist of four modules
+which you can watch on your own pace.
+
+14
+00:00:55.933 --> 00:01:02.466
+If you have a full-time job, you may decide to watch
+each module in two weeks or more, that's fine.
+
+15
+00:01:02.466 --> 00:01:08.866
+If you, for instance, need to prepare to an interview,
+then you may decide to watch everything in a week.
+
+16
+00:01:08.866 --> 00:01:10.833
+That's totally up to you.
+
+17
+00:01:11.333 --> 00:01:13.433
+We’ll have many in-video questions.
+
+18
+00:01:13.433 --> 00:01:19.000
+Note that sometimes these questions will introduce a new idea,
+
+19
+00:01:19.000 --> 00:01:23.633
+not just ask you about something that I’ve already explained.
+
+20
+00:01:23.633 --> 00:01:31.000
+In this case, even if you don't know the answer,
+just make a pause, think, and you may guess.
+
+21
+00:01:31.000 --> 00:01:34.866
+And just afterwards, you will see the solution.
+
+22
+00:01:34.866 --> 00:01:39.600
+Each question will be followed by the explanation directly in the video.
+
+23
+00:01:40.100 --> 00:01:45.566
+We'll have many small tasks, which you can do directly in the browser.
+
+24
+00:01:45.566 --> 00:01:48.200
+Note that these tasks are ungraded.
+
+25
+00:01:48.200 --> 00:01:54.433
+You may just check yourself by ensuring
+that all the output is as expected.
+
+26
+00:01:54.433 --> 00:01:59.100
+Each such task will be accompanied by the solution video.
+
+27
+00:01:59.100 --> 00:02:03.133
+I’d recommend to watch these videos after doing the task.
+
+28
+00:02:03.133 --> 00:02:07.733
+Sometimes these videos may highlight alternative solutions,
+
+29
+00:02:07.733 --> 00:02:12.100
+compare different options, or introduce some new details.
+
+30
+00:02:13.433 --> 00:02:17.066
+At the end of each module, we'll have one full assignment.
+
+31
+00:02:17.066 --> 00:02:22.699
+Note that you may read the task, implement the solution and
+
+32
+00:02:22.699 --> 00:02:26.699
+check the solution from IntelliJ Idea directly using the EduTools plugin.
+
+33
+00:02:26.699 --> 00:02:32.833
+You'll find all the necessary installation instructions
+in the accompanying materials to this course.
+
 WEBVTT
 
 1

@@ -24,19 +24,14 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.1-jre'
     implementation 'com.google.cloud:google-cloud-translate:1.94.2'
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     implementation group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.30'
     implementation 'org.apache.tika:tika-parsers:1.23'
-
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-
-
-
 }
 
 application {
     // Define the main class for the application.
-    mainClassName = 'GCP_Translation.App'
+    mainClassName = 'subtitle.translator.App'
 }
