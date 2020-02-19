@@ -18,7 +18,6 @@ public class TikaParser {
             Metadata metadata = new Metadata();
             InputStream inputStream = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\week1_1.vtt");
             parser.parse(inputStream, handler, metadata);
-
             String test = handler.toString();
             BufferedWriter writer = new BufferedWriter(new FileWriter("week1_1_test.txt", true));
             writer.append('\n');
