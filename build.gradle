@@ -33,7 +33,6 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.1-jre'
     implementation 'com.google.cloud:google-cloud-translate:1.94.2'
-    implementation 'org.apache.tika:tika-parsers:1.23'
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 
