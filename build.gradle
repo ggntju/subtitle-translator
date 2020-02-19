@@ -30,6 +30,9 @@ repositories {
 }
 
 dependencies {
+
+    runtime 'io.netty:netty-tcnative-boringssl-static:2.0.20.Final'
+
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.1-jre'
     implementation 'com.google.cloud:google-cloud-translate:1.94.2'
