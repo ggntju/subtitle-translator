@@ -5,8 +5,8 @@ import com.google.cloud.translate.v3.TranslateTextRequest;
 import com.google.cloud.translate.v3.TranslateTextResponse;
 import com.google.cloud.translate.v3.Translation;
 import com.google.cloud.translate.v3.TranslationServiceClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class Translator {
     private String projectID;
     private String targetLanguage;
-    private static final Logger logger = LoggerFactory.getLogger(Translator.class);
+    private static final Logger logger = LogManager.getLogger(Translator.class);
     public Translator(String projectID, String targetLanguage) {
         this.projectID = projectID;
         this.targetLanguage = targetLanguage;

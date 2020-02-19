@@ -1,9 +1,9 @@
 package subtitle.translator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class RestServiceApplication implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(RestServiceApplication.class);
+    private static final Logger logger = LogManager.getLogger(RestServiceApplication.class);
 
     @Autowired
     private Environment env;
