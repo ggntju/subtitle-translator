@@ -1,0 +1,546 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.980
+In this video, you'll
+
+2
+00:00:01.980 --> 00:00:04.170
+learn more library
+functions similar to
+
+3
+00:00:04.170 --> 00:00:05.580
+with that look like
+
+4
+00:00:05.580 --> 00:00:08.580
+built-in language constructs
+but just take lambda,
+
+5
+00:00:08.580 --> 00:00:10.845
+lambda was a receiver
+as an argument.
+
+6
+00:00:10.845 --> 00:00:12.870
+There are many similar to with
+
+7
+00:00:12.870 --> 00:00:15.180
+functions defined in
+the standard library.
+
+8
+00:00:15.180 --> 00:00:17.850
+I'll try to show you
+briefly when each one might
+
+9
+00:00:17.850 --> 00:00:20.640
+be used and why we do
+have so many of them.
+
+10
+00:00:20.640 --> 00:00:22.615
+What is the difference?
+
+11
+00:00:22.615 --> 00:00:24.930
+We've already seen with,
+
+12
+00:00:24.930 --> 00:00:27.375
+it takes an expression
+as an argument and
+
+13
+00:00:27.375 --> 00:00:30.540
+uses it as the receiver inside
+of the following lambda.
+
+14
+00:00:30.540 --> 00:00:32.415
+Here we can access members of
+
+15
+00:00:32.415 --> 00:00:34.895
+window without
+explicit specification.
+
+16
+00:00:34.895 --> 00:00:37.890
+We're just directly
+window properties.
+
+17
+00:00:37.890 --> 00:00:40.090
+Run is very similar to
+
+18
+00:00:40.090 --> 00:00:42.420
+with but it is defined
+as an extension,
+
+19
+00:00:42.420 --> 00:00:44.030
+which makes it possible to use
+
+20
+00:00:44.030 --> 00:00:45.755
+it with a null-able receiver.
+
+21
+00:00:45.755 --> 00:00:48.920
+If the receiver, window
+in our case, can be null,
+
+22
+00:00:48.920 --> 00:00:50.735
+then you can't use with
+
+23
+00:00:50.735 --> 00:00:54.125
+because this will be
+null-able inside the lambda,
+
+24
+00:00:54.125 --> 00:00:56.275
+then these can't be admitted,
+
+25
+00:00:56.275 --> 00:00:59.315
+you will need to explicitly
+check whether it's not null.
+
+26
+00:00:59.315 --> 00:01:01.475
+Run is helpful for such a case
+
+27
+00:01:01.475 --> 00:01:04.040
+because you can use
+it with safe access.
+
+28
+00:01:04.040 --> 00:01:07.850
+Run will be called only when
+the receiver is not null.
+
+29
+00:01:07.850 --> 00:01:09.785
+But note that in many other cases
+
+30
+00:01:09.785 --> 00:01:12.385
+run and with are interchangeable.
+
+31
+00:01:12.385 --> 00:01:15.620
+You can use the whole expression
+as the receiver,
+
+32
+00:01:15.620 --> 00:01:18.845
+here the run will
+be called only when
+
+33
+00:01:18.845 --> 00:01:23.005
+windowById main exists
+and is not null.
+
+34
+00:01:23.005 --> 00:01:26.040
+Apply is different because
+
+35
+00:01:26.040 --> 00:01:28.485
+it returns the
+receiver as a result.
+
+36
+00:01:28.485 --> 00:01:30.075
+We haven't used it,
+
+37
+00:01:30.075 --> 00:01:31.430
+but actually with and
+
+38
+00:01:31.430 --> 00:01:34.445
+drawn functions return
+the result of the lambda.
+
+39
+00:01:34.445 --> 00:01:36.410
+The last expression inside
+
+40
+00:01:36.410 --> 00:01:39.245
+the lambda will be the result
+of the whole invocation.
+
+41
+00:01:39.245 --> 00:01:42.395
+Sometimes, however, it's
+convenient to return.
+
+42
+00:01:42.395 --> 00:01:44.315
+the receiver as the result.
+
+43
+00:01:44.315 --> 00:01:46.750
+For instance, in
+a chain of calls,
+
+44
+00:01:46.750 --> 00:01:48.875
+you can call other methods
+
+45
+00:01:48.875 --> 00:01:51.125
+afterward or again
+like in this example,
+
+46
+00:01:51.125 --> 00:01:53.690
+simply assign the results
+to a variable.
+
+47
+00:01:53.690 --> 00:01:55.879
+When you create
+a window instance,
+
+48
+00:01:55.879 --> 00:01:56.900
+you might want to
+
+49
+00:01:56.900 --> 00:01:59.275
+modify some of
+its properties right away.
+
+50
+00:01:59.275 --> 00:02:01.640
+Apply is really useful for that
+
+51
+00:02:01.640 --> 00:02:04.760
+because the result is
+the modified main window.
+
+52
+00:02:04.760 --> 00:02:06.860
+Note that we assign the variable
+
+53
+00:02:06.860 --> 00:02:09.360
+here only the result
+is non-null and
+
+54
+00:02:09.360 --> 00:02:10.780
+if it's null we stop
+
+55
+00:02:10.780 --> 00:02:14.615
+the current execution and
+return from the outer function.
+
+56
+00:02:14.615 --> 00:02:17.495
+Also is similar to apply,
+
+57
+00:02:17.495 --> 00:02:19.645
+it returns the receiver as well.
+
+58
+00:02:19.645 --> 00:02:22.370
+However, there is
+the difference that it takes
+
+59
+00:02:22.370 --> 00:02:23.780
+a regular lambda not
+
+60
+00:02:23.780 --> 00:02:26.000
+lambda with a receiver
+as an argument.
+
+61
+00:02:26.000 --> 00:02:29.000
+Lambda with the receiver is
+really useful when you can
+
+62
+00:02:29.000 --> 00:02:32.270
+admit this reference because
+you only call it's members.
+
+63
+00:02:32.270 --> 00:02:34.370
+However, there are cases when
+
+64
+00:02:34.370 --> 00:02:36.340
+you pass the receiver
+is an argument,
+
+65
+00:02:36.340 --> 00:02:37.985
+like here when we pass
+
+66
+00:02:37.985 --> 00:02:40.940
+a window as an argument to
+the function showWindow.
+
+67
+00:02:40.940 --> 00:02:43.250
+In this case,
+the also function is
+
+68
+00:02:43.250 --> 00:02:46.330
+better because it takes
+a regular lambda as an argument.
+
+69
+00:02:46.330 --> 00:02:50.405
+Here, it inside also
+refers to window.
+
+70
+00:02:50.405 --> 00:02:54.230
+You can introduce the window
+name for it If you want.
+
+71
+00:02:54.230 --> 00:02:56.900
+Sometimes you can
+explicitly prefer to change
+
+72
+00:02:56.900 --> 00:02:58.430
+the lambda parameter name when
+
+73
+00:02:58.430 --> 00:03:01.720
+you use also, that's possible.
+
+74
+00:03:01.720 --> 00:03:03.830
+This table shows you
+
+75
+00:03:03.830 --> 00:03:06.065
+the difference between
+all these functions.
+
+76
+00:03:06.065 --> 00:03:08.870
+With goes in a cell
+together with run.
+
+77
+00:03:08.870 --> 00:03:11.825
+With is only one
+non-extension function here.
+
+78
+00:03:11.825 --> 00:03:14.880
+All other functions including
+run are extensions.
+
+79
+00:03:14.880 --> 00:03:17.870
+The difference between
+them is which functions
+
+80
+00:03:17.870 --> 00:03:19.445
+return the result
+of the lambda and
+
+81
+00:03:19.445 --> 00:03:21.370
+which functions
+return the receiver.
+
+82
+00:03:21.370 --> 00:03:23.495
+The functions in the first column
+
+83
+00:03:23.495 --> 00:03:25.700
+take lambda with the
+receiver as an argument,
+
+84
+00:03:25.700 --> 00:03:27.285
+with run as apply.
+
+85
+00:03:27.285 --> 00:03:31.200
+The rest two take the regular
+lambda as an argument.
+
+86
+00:03:31.200 --> 00:03:33.680
+Without looking back at
+
+87
+00:03:33.680 --> 00:03:36.215
+the first slide with
+all the function decorations,
+
+88
+00:03:36.215 --> 00:03:37.820
+you may practice
+your own understanding
+
+89
+00:03:37.820 --> 00:03:39.245
+and find the correspondence
+
+90
+00:03:39.245 --> 00:03:40.910
+between this function decorations
+
+91
+00:03:40.910 --> 00:03:42.680
+and their implementations.
+
+92
+00:03:42.680 --> 00:03:45.920
+Note that we consider only
+extension functions now,
+
+93
+00:03:45.920 --> 00:03:48.440
+right afterward we'll
+discuss the answer.
+
+94
+00:03:48.440 --> 00:03:50.660
+The table is very useful.
+
+95
+00:03:50.660 --> 00:03:52.370
+At first, let's focus on
+
+96
+00:03:52.370 --> 00:03:54.875
+the functions returning the
+receiver as the result.
+
+97
+00:03:54.875 --> 00:03:57.320
+They should return
+explicit to this because
+
+98
+00:03:57.320 --> 00:04:00.035
+this refers to the receiver
+inside the lambda.
+
+99
+00:04:00.035 --> 00:04:03.350
+The other two functions return
+the result of the lambda.
+
+100
+00:04:03.350 --> 00:04:06.665
+We now distinguish
+at least pairs of functions,
+
+101
+00:04:06.665 --> 00:04:09.290
+after that we can go
+on and focus on which
+
+102
+00:04:09.290 --> 00:04:12.305
+lambda do the functions
+take as an argument.
+
+103
+00:04:12.305 --> 00:04:14.670
+Two functions take
+lambda with receiver,
+
+104
+00:04:14.670 --> 00:04:17.720
+they expect a parameter of
+extension function type.
+
+105
+00:04:17.720 --> 00:04:20.060
+This parameter of
+extension function type
+
+106
+00:04:20.060 --> 00:04:22.550
+must be called as
+an extension function.
+
+107
+00:04:22.550 --> 00:04:25.515
+If we call this block
+as an extension,
+
+108
+00:04:25.515 --> 00:04:28.420
+then block corresponds to
+lambda with a receiver.
+
+109
+00:04:28.420 --> 00:04:32.030
+The other two functions
+take a regular lambda and
+
+110
+00:04:32.030 --> 00:04:33.230
+then call a variable of
+
+111
+00:04:33.230 --> 00:04:35.435
+a function type as
+a regular function.
+
+112
+00:04:35.435 --> 00:04:37.460
+That gives us the result.
+
+113
+00:04:37.460 --> 00:04:40.339
+You now know what
+lambda receiver is
+
+114
+00:04:40.339 --> 00:04:42.380
+and can you use
+many helpful functions
+
+115
+00:04:42.380 --> 00:04:44.195
+defined in the standard library.
+
+116
+00:04:44.195 --> 00:04:47.570
+Next section we'll dive into
+the topic of Kotlin types
+
+117
+00:04:47.570 --> 00:04:49.460
+and explain the correspondence
+
+118
+00:04:49.460 --> 00:04:52.240
+between Kotlin and Java types.

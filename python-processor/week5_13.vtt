@@ -1,0 +1,540 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.625
+In this video, you'll learn about
+
+2
+00:00:02.625 --> 00:00:04.785
+the correspondence between
+Kotlin collection types
+
+3
+00:00:04.785 --> 00:00:06.300
+and Java collection types.
+
+4
+00:00:06.300 --> 00:00:08.940
+While talking about extensions,
+
+5
+00:00:08.940 --> 00:00:11.970
+we've discussed that
+Kotlin standard library
+
+6
+00:00:11.970 --> 00:00:13.020
+contains a bunch of
+
+7
+00:00:13.020 --> 00:00:15.255
+extension methods in
+Java collections,
+
+8
+00:00:15.255 --> 00:00:17.640
+and when you create
+a collection in Kotlin,
+
+9
+00:00:17.640 --> 00:00:19.290
+you actually create
+an instance of
+
+10
+00:00:19.290 --> 00:00:21.705
+Java's standard collection
+under the hood.
+
+11
+00:00:21.705 --> 00:00:24.960
+Thus, there should be
+the correspondence between
+
+12
+00:00:24.960 --> 00:00:28.410
+the list in Kotlin and
+the interface Java.util.List.
+
+13
+00:00:28.410 --> 00:00:30.960
+We already saw that
+other types are
+
+14
+00:00:30.960 --> 00:00:33.555
+replaced at the bytecode
+with Java types.
+
+15
+00:00:33.555 --> 00:00:36.700
+So probably, here it
+works the same way.
+
+16
+00:00:36.700 --> 00:00:41.250
+However, it's not that
+straightforward because in Kotlin,
+
+17
+00:00:41.250 --> 00:00:44.535
+we have both read-on the
+list and MutableList.
+
+18
+00:00:44.535 --> 00:00:49.135
+They both somehow correspond
+to one Java.util.List.
+
+19
+00:00:49.135 --> 00:00:51.110
+How it works then.
+
+20
+00:00:51.110 --> 00:00:53.615
+Now, let's discuss that.
+
+21
+00:00:53.615 --> 00:00:56.000
+List and mutablelist are
+
+22
+00:00:56.000 --> 00:00:58.380
+simple interfaces
+defined in Kotlin,
+
+23
+00:00:58.380 --> 00:01:02.655
+the collection package, and
+mutablelist extends List.
+
+24
+00:01:02.655 --> 00:01:05.570
+Note that we specifically
+used the broad
+
+25
+00:01:05.570 --> 00:01:08.870
+read-only to describe
+the interface list in Kotlin.
+
+26
+00:01:08.870 --> 00:01:11.675
+It's not the same as immutable.
+
+27
+00:01:11.675 --> 00:01:14.120
+It's not immutable data structure
+
+28
+00:01:14.120 --> 00:01:15.765
+which cannot be changed.
+
+29
+00:01:15.765 --> 00:01:18.190
+No. A read-only interface,
+
+30
+00:01:18.190 --> 00:01:20.620
+just like mutating methods.
+
+31
+00:01:20.620 --> 00:01:22.390
+The actual list can be
+
+32
+00:01:22.390 --> 00:01:25.295
+modified via
+a different reference.
+
+33
+00:01:25.295 --> 00:01:27.570
+The question to you, what
+
+34
+00:01:27.570 --> 00:01:30.255
+happens when running
+the code below?
+
+35
+00:01:30.255 --> 00:01:32.790
+Here, we create
+an immutable list,
+
+36
+00:01:32.790 --> 00:01:36.170
+assign the mutable list
+variable to a read-only list,
+
+37
+00:01:36.170 --> 00:01:38.165
+and modify the initial list.
+
+38
+00:01:38.165 --> 00:01:39.730
+Are there options?
+
+39
+00:01:39.730 --> 00:01:41.550
+The assignment won't compile,
+
+40
+00:01:41.550 --> 00:01:43.815
+we can't modify the initial list,
+
+41
+00:01:43.815 --> 00:01:45.945
+the initial list will be printed,
+
+42
+00:01:45.945 --> 00:01:47.760
+all the modified list will be
+
+43
+00:01:47.760 --> 00:01:50.250
+printed, what's your choice?
+
+44
+00:01:50.250 --> 00:01:52.785
+This code compile is fine.
+
+45
+00:01:52.785 --> 00:01:55.140
+What's happening here is at
+
+46
+00:01:55.140 --> 00:01:56.940
+the read-only reference observes
+
+47
+00:01:56.940 --> 00:01:59.355
+the mutation of the mutableList.
+
+48
+00:01:59.355 --> 00:02:02.160
+Here the mutableList refers
+
+49
+00:02:02.160 --> 00:02:04.710
+to the created List
+object in memory.
+
+50
+00:02:04.710 --> 00:02:07.870
+Then, we assign
+the reference to this List
+
+51
+00:02:07.870 --> 00:02:11.285
+to another variable of
+read-only List type.
+
+52
+00:02:11.285 --> 00:02:13.715
+Having the variable of
+the read-only list,
+
+53
+00:02:13.715 --> 00:02:15.650
+only means that you can't
+
+54
+00:02:15.650 --> 00:02:18.070
+call add members on such a list,
+
+55
+00:02:18.070 --> 00:02:21.135
+list likes mutating method.
+
+56
+00:02:21.135 --> 00:02:24.925
+However, this list can
+be modified because
+
+57
+00:02:24.925 --> 00:02:26.405
+there is another reference
+
+58
+00:02:26.405 --> 00:02:28.120
+through which you can modify it.
+
+59
+00:02:28.120 --> 00:02:32.515
+The read-only list will
+simply observe this change.
+
+60
+00:02:32.515 --> 00:02:36.420
+At the bytecode,
+both Kotlin list and
+
+61
+00:02:36.420 --> 00:02:40.875
+mutableList interfaces are
+replaced with Java.util.List.
+
+62
+00:02:40.875 --> 00:02:45.005
+By default, when you create
+an instance of mutableList,
+
+63
+00:02:45.005 --> 00:02:47.630
+Java.util.ArrayList
+will be created.
+
+64
+00:02:47.630 --> 00:02:49.730
+Kotlin somehow pretend that
+
+65
+00:02:49.730 --> 00:02:53.320
+Java.util.ArrayList implements
+kotlin.MutableList.
+
+66
+00:02:53.320 --> 00:02:55.765
+There are some
+compiler magic when
+
+67
+00:02:55.765 --> 00:02:59.940
+a Java interface is substituted
+by the Kotlin interface.
+
+68
+00:02:59.950 --> 00:03:02.840
+Under the hood, it works via
+
+69
+00:03:02.840 --> 00:03:05.060
+the same mechanism
+as nullable types.
+
+70
+00:03:05.060 --> 00:03:07.895
+The similar idea of
+platform types is used.
+
+71
+00:03:07.895 --> 00:03:09.415
+That's how the platform type
+
+72
+00:03:09.415 --> 00:03:11.415
+for collection type is written.
+
+73
+00:03:11.415 --> 00:03:14.270
+Again, you cannot define
+a variable of such type,
+
+74
+00:03:14.270 --> 00:03:16.670
+you can only find it
+in array messages,
+
+75
+00:03:16.670 --> 00:03:18.000
+or when you check in ID
+
+76
+00:03:18.000 --> 00:03:20.245
+what type does
+this variable have.
+
+77
+00:03:20.245 --> 00:03:23.435
+This platform type means
+that it came from Java,
+
+78
+00:03:23.435 --> 00:03:26.450
+and it is a type of
+unknown mutability.
+
+79
+00:03:26.450 --> 00:03:28.340
+We don't know whether it was
+
+80
+00:03:28.340 --> 00:03:30.680
+intended to be
+mutable or read-only,
+
+81
+00:03:30.680 --> 00:03:34.290
+so we can use such type as both.
+
+82
+00:03:34.460 --> 00:03:37.860
+You can ask, why do we need this?
+
+83
+00:03:37.860 --> 00:03:39.285
+Why do we need
+
+84
+00:03:39.285 --> 00:03:40.940
+these read-only types at
+
+85
+00:03:40.940 --> 00:03:43.830
+all if they are not
+truly immutable?
+
+86
+00:03:43.830 --> 00:03:46.315
+The answer is that with Kotlin,
+
+87
+00:03:46.315 --> 00:03:48.590
+it's now much more
+difficult or even
+
+88
+00:03:48.590 --> 00:03:50.780
+impossible to break
+something accidentally.
+
+89
+00:03:50.780 --> 00:03:54.900
+The problem with always having
+mutable methods in a List,
+
+90
+00:03:54.900 --> 00:03:56.030
+is that you cannot
+
+91
+00:03:56.030 --> 00:03:59.375
+understand that this List
+shouldn't be changed.
+
+92
+00:03:59.375 --> 00:04:02.135
+For instance, it is
+a part of API and
+
+93
+00:04:02.135 --> 00:04:04.865
+the API didn't intend to
+their list to be modified,
+
+94
+00:04:04.865 --> 00:04:06.320
+but it's not a library,
+
+95
+00:04:06.320 --> 00:04:08.165
+it's a piece of
+your own application.
+
+96
+00:04:08.165 --> 00:04:10.460
+You usually simply
+return this variable in
+
+97
+00:04:10.460 --> 00:04:13.310
+Java as of Java.util.List type,
+
+98
+00:04:13.310 --> 00:04:17.000
+and in Java, you can accidentally
+call the add method,
+
+99
+00:04:17.000 --> 00:04:20.035
+because you think it's a local
+collection, but it's not.
+
+100
+00:04:20.035 --> 00:04:22.940
+In Kotlin, it's no
+longer the case.
+
+101
+00:04:22.940 --> 00:04:25.360
+You can still call
+the modification method if you
+
+102
+00:04:25.360 --> 00:04:27.935
+explicitly cost it to
+the mutable collection.
+
+103
+00:04:27.935 --> 00:04:31.730
+But in this case, you really
+want to break this code.
+
+104
+00:04:31.730 --> 00:04:34.080
+Accidentally, you can't do it,
+
+105
+00:04:34.080 --> 00:04:37.040
+so such approach prevents
+from some possible errors.
+
+106
+00:04:37.040 --> 00:04:38.765
+Like with nullable types,
+
+107
+00:04:38.765 --> 00:04:40.520
+Kotlin collection types provide
+
+108
+00:04:40.520 --> 00:04:43.460
+a good compromise between
+safety and convenience.
+
+109
+00:04:43.460 --> 00:04:46.550
+You explicitly say whether
+a collection is intended to be
+
+110
+00:04:46.550 --> 00:04:49.835
+modified by using
+a read-only or mutable type,
+
+111
+00:04:49.835 --> 00:04:53.025
+and you can easily mix
+Kotlin and Java collection types
+
+112
+00:04:53.025 --> 00:04:56.360
+because the same classes
+I used under the hood,
+
+113
+00:04:56.360 --> 00:04:58.435
+no extra wrapping is needed.
+
+114
+00:04:58.435 --> 00:05:00.319
+We've discussed
+the correspondence
+
+115
+00:05:00.319 --> 00:05:02.045
+between Kotlin and Java types.
+
+116
+00:05:02.045 --> 00:05:04.310
+You now know how to
+mix two languages,
+
+117
+00:05:04.310 --> 00:05:05.690
+and better understand how
+
+118
+00:05:05.690 --> 00:05:09.450
+the Kotlin types are represented
+at the bytecode level.

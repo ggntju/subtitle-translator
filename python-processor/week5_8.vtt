@@ -1,0 +1,966 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.400
+In this section, you'll learn
+
+2
+00:00:02.400 --> 00:00:04.680
+about the powerful feature
+of the Kotlin language,
+
+3
+00:00:04.680 --> 00:00:06.885
+which is called
+lambda with receiver.
+
+4
+00:00:06.885 --> 00:00:09.960
+In essence, it might be
+considered as a union of
+
+5
+00:00:09.960 --> 00:00:12.420
+two ideas of two other features:
+
+6
+00:00:12.420 --> 00:00:14.685
+extension functions and lambdas.
+
+7
+00:00:14.685 --> 00:00:17.880
+Now, we'll discuss
+what does that mean.
+
+8
+00:00:17.880 --> 00:00:20.355
+Let`s try to read the example.
+
+9
+00:00:20.355 --> 00:00:21.915
+We create a StringBuilder,
+
+10
+00:00:21.915 --> 00:00:23.430
+append some strings to it,
+
+11
+00:00:23.430 --> 00:00:25.815
+and then get
+the resulting string.
+
+12
+00:00:25.815 --> 00:00:28.980
+Probably, we intend
+to somehow return it.
+
+13
+00:00:28.980 --> 00:00:31.545
+The problem in
+this code, a small one.
+
+14
+00:00:31.545 --> 00:00:35.170
+The one that everyone is
+used to working in general,
+
+15
+00:00:35.170 --> 00:00:36.650
+is that you have to repeat
+
+16
+00:00:36.650 --> 00:00:38.510
+the variable name several times,
+
+17
+00:00:38.510 --> 00:00:40.555
+to call different
+operations on it.
+
+18
+00:00:40.555 --> 00:00:41.840
+In slides, I have
+
+19
+00:00:41.840 --> 00:00:44.825
+a very short name for
+the variable, but in real life,
+
+20
+00:00:44.825 --> 00:00:47.255
+it probably will be
+called StringBuilder
+
+21
+00:00:47.255 --> 00:00:50.135
+and you will have to repeat
+these names several times.
+
+22
+00:00:50.135 --> 00:00:52.980
+In Kotlin, you can do that.
+
+23
+00:00:53.120 --> 00:00:56.555
+You can use with for this case.
+
+24
+00:00:56.555 --> 00:00:59.555
+I suppose it should be
+clear what's going on.
+
+25
+00:00:59.555 --> 00:01:02.820
+You no longer need to repeat
+their civil several times.
+
+26
+00:01:02.820 --> 00:01:04.670
+You can call all the members and
+
+27
+00:01:04.670 --> 00:01:07.675
+extensions without
+explicit receiver specification,
+
+28
+00:01:07.675 --> 00:01:10.085
+like members inside the class.
+
+29
+00:01:10.085 --> 00:01:13.325
+But the most interesting
+thing on this slide,
+
+30
+00:01:13.325 --> 00:01:15.055
+it's actually its name.
+
+31
+00:01:15.055 --> 00:01:17.630
+It's called the with function,
+
+32
+00:01:17.630 --> 00:01:20.200
+thus with is a regular function
+
+33
+00:01:20.200 --> 00:01:22.235
+defined in the standard library.
+
+34
+00:01:22.235 --> 00:01:24.210
+Here, we see the same pattern
+
+35
+00:01:24.210 --> 00:01:26.330
+used as we've discussed before,
+
+36
+00:01:26.330 --> 00:01:29.905
+something that looks like a
+built in language construct,
+
+37
+00:01:29.905 --> 00:01:31.240
+is a regular function
+
+38
+00:01:31.240 --> 00:01:33.505
+defined in the Kotlin
+standard library.
+
+39
+00:01:33.505 --> 00:01:35.945
+In some other languages, with or
+
+40
+00:01:35.945 --> 00:01:39.200
+similar concept is
+a language construct.
+
+41
+00:01:39.240 --> 00:01:41.965
+To make it possible to define
+
+42
+00:01:41.965 --> 00:01:44.050
+such functions in the library,
+
+43
+00:01:44.050 --> 00:01:47.230
+Kotlin supports the concept
+of lambda with the receiver.
+
+44
+00:01:47.230 --> 00:01:50.205
+Let's first find the lambda here.
+
+45
+00:01:50.205 --> 00:01:52.740
+With is a regular function
+
+46
+00:01:52.740 --> 00:01:55.605
+and lambda is
+its second argument.
+
+47
+00:01:55.605 --> 00:01:57.340
+When we introduced lambdas,
+
+48
+00:01:57.340 --> 00:01:59.255
+we've already talked
+about the rule
+
+49
+00:01:59.255 --> 00:02:01.580
+that if lambda is
+the last argument,
+
+50
+00:02:01.580 --> 00:02:04.265
+it can be moved out
+of the parenthesis.
+
+51
+00:02:04.265 --> 00:02:06.590
+Another syntax is putting lambda
+
+52
+00:02:06.590 --> 00:02:08.825
+explicitly as
+the second argument.
+
+53
+00:02:08.825 --> 00:02:11.585
+No one does that because
+it's not very readable.
+
+54
+00:02:11.585 --> 00:02:15.535
+But it demonstrates that with
+is a regular function call.
+
+55
+00:02:15.535 --> 00:02:18.815
+So curly braces mark the lambda
+
+56
+00:02:18.815 --> 00:02:22.210
+and this is an implicit receiver
+inside this lambda.
+
+57
+00:02:22.210 --> 00:02:24.350
+Lambda with the
+receiver is a lambda
+
+58
+00:02:24.350 --> 00:02:27.470
+with these reference
+available inside.
+
+59
+00:02:27.470 --> 00:02:30.290
+As usual for these reference,
+
+60
+00:02:30.290 --> 00:02:32.150
+it can then meet it.
+
+61
+00:02:32.150 --> 00:02:33.875
+That's how we get
+
+62
+00:02:33.875 --> 00:02:37.490
+this nice syntax without
+explicit to this.
+
+63
+00:02:37.620 --> 00:02:40.265
+Lambda with the receiver is
+
+64
+00:02:40.265 --> 00:02:42.985
+simply lambda with
+implicit to this.
+
+65
+00:02:42.985 --> 00:02:45.090
+You can access these inside
+
+66
+00:02:45.090 --> 00:02:48.580
+lambda and call members
+on the receiver.
+
+67
+00:02:48.620 --> 00:02:53.045
+To check that you understand
+that, answer the question.
+
+68
+00:02:53.045 --> 00:02:56.695
+What is the type of this
+in the following example?
+
+69
+00:02:56.695 --> 00:02:59.070
+The type is StringBuilder,
+
+70
+00:02:59.070 --> 00:03:01.760
+when we are talking
+about the with function,
+
+71
+00:03:01.760 --> 00:03:04.040
+this refers to
+the first argument.
+
+72
+00:03:04.040 --> 00:03:07.445
+Its type is the same as
+the type of the argument,
+
+73
+00:03:07.445 --> 00:03:10.195
+which is StringBuilder here.
+
+74
+00:03:10.195 --> 00:03:12.935
+There is a direct correspondence
+
+75
+00:03:12.935 --> 00:03:15.575
+between regular functions
+and regular lambdas,
+
+76
+00:03:15.575 --> 00:03:17.345
+and between extension functions
+
+77
+00:03:17.345 --> 00:03:19.115
+and lambdas with receiver.
+
+78
+00:03:19.115 --> 00:03:20.940
+The first name for lambdas with
+
+79
+00:03:20.940 --> 00:03:22.880
+the receiver are
+voice extension lambdas.
+
+80
+00:03:22.880 --> 00:03:25.685
+Sometimes people may call
+them extension lambdas
+
+81
+00:03:25.685 --> 00:03:28.805
+because of this correspondence,
+is the synonym.
+
+82
+00:03:28.805 --> 00:03:30.290
+At some point, we
+
+83
+00:03:30.290 --> 00:03:32.450
+decided that lambda
+with the receiver is
+
+84
+00:03:32.450 --> 00:03:34.610
+a most clear name
+which better explains
+
+85
+00:03:34.610 --> 00:03:37.160
+the concept and illustrates
+what is going on.
+
+86
+00:03:37.160 --> 00:03:40.010
+It is preferable for
+learning these feature.
+
+87
+00:03:40.010 --> 00:03:42.160
+What is the correspondence?
+
+88
+00:03:42.160 --> 00:03:44.590
+Inside the body of
+the extension function,
+
+89
+00:03:44.590 --> 00:03:47.330
+you can use these as
+an implicit receiver.
+
+90
+00:03:47.330 --> 00:03:49.040
+You can omit this and
+
+91
+00:03:49.040 --> 00:03:51.530
+simply call the members
+of the receiver.
+
+92
+00:03:51.530 --> 00:03:54.290
+Lambda with receiver
+is very similar,
+
+93
+00:03:54.290 --> 00:03:56.320
+because of these
+inside this lambda.
+
+94
+00:03:56.320 --> 00:03:58.230
+If you can omit it
+and simply call
+
+95
+00:03:58.230 --> 00:04:01.235
+members without
+explicit specification.
+
+96
+00:04:01.235 --> 00:04:03.620
+There is also correspondence
+
+97
+00:04:03.620 --> 00:04:06.680
+between the ways how
+you call lambdas.
+
+98
+00:04:06.680 --> 00:04:09.350
+We've discussed that you
+can store a lambda in
+
+99
+00:04:09.350 --> 00:04:12.985
+a variable and the same works
+for lambda the receiver.
+
+100
+00:04:12.985 --> 00:04:14.900
+You can see how the type for
+
+101
+00:04:14.900 --> 00:04:17.135
+lambda with receiver
+looks in Kotlin.
+
+102
+00:04:17.135 --> 00:04:20.555
+You put a receiver type
+before the parameter list,
+
+103
+00:04:20.555 --> 00:04:22.145
+then follows the dot,
+
+104
+00:04:22.145 --> 00:04:25.010
+then the perimeters as
+usual in the parenthesis.
+
+105
+00:04:25.010 --> 00:04:27.745
+The return type is
+specified after the arrow,
+
+106
+00:04:27.745 --> 00:04:29.725
+like forever the lambda.
+
+107
+00:04:29.725 --> 00:04:32.430
+When you call a regular lambda,
+
+108
+00:04:32.430 --> 00:04:34.580
+you call it as
+a regular function.
+
+109
+00:04:34.580 --> 00:04:38.030
+You can call lambda
+of the receiver,
+
+110
+00:04:38.030 --> 00:04:40.340
+you call it as
+an extension function.
+
+111
+00:04:40.340 --> 00:04:41.910
+You see this correspondence.
+
+112
+00:04:41.910 --> 00:04:44.465
+Regular lambdas correspond
+to regular functions,
+
+113
+00:04:44.465 --> 00:04:45.890
+lambda's with the receiver
+
+114
+00:04:45.890 --> 00:04:48.505
+correspond to
+extension functions.
+
+115
+00:04:48.505 --> 00:04:51.080
+Another example
+that I want to show
+
+116
+00:04:51.080 --> 00:04:53.360
+you is the buildString function.
+
+117
+00:04:53.360 --> 00:04:56.620
+You don't need to use with
+for building a string,
+
+118
+00:04:56.620 --> 00:04:58.525
+it was used for illustration.
+
+119
+00:04:58.525 --> 00:05:01.525
+In real life, you
+can use buildString
+
+120
+00:05:01.525 --> 00:05:04.880
+to build a StringBuilder
+and convert it to a string.
+
+121
+00:05:04.880 --> 00:05:09.150
+It takes a lambda with
+the receiver as an argument.
+
+122
+00:05:09.550 --> 00:05:12.845
+Now let's look under the hood and
+
+123
+00:05:12.845 --> 00:05:16.045
+look at how the buildString
+function is implemented.
+
+124
+00:05:16.045 --> 00:05:17.865
+We know that it takes
+
+125
+00:05:17.865 --> 00:05:19.880
+lambda with the receiver
+as an argument.
+
+126
+00:05:19.880 --> 00:05:21.920
+So it expect the parameter of
+
+127
+00:05:21.920 --> 00:05:24.185
+extension function type
+to StringBuilder.
+
+128
+00:05:24.185 --> 00:05:27.590
+What it does inside is
+something very simple.
+
+129
+00:05:27.590 --> 00:05:29.365
+It creates a StringBuilder.
+
+130
+00:05:29.365 --> 00:05:31.145
+In the end, it returns
+
+131
+00:05:31.145 --> 00:05:34.070
+the resulting string
+from the StringBuilder.
+
+132
+00:05:34.070 --> 00:05:37.280
+But without adding content
+to the StringBuilder,
+
+133
+00:05:37.280 --> 00:05:39.635
+you'll get an empty string
+as the result.
+
+134
+00:05:39.635 --> 00:05:42.560
+In the middle, you
+should somehow call
+
+135
+00:05:42.560 --> 00:05:43.670
+all the actions on
+
+136
+00:05:43.670 --> 00:05:46.235
+the StringBuilder
+provided in the lambda.
+
+137
+00:05:46.235 --> 00:05:50.765
+Now, try to complete
+these buildString definition.
+
+138
+00:05:50.765 --> 00:05:54.260
+The answer is that
+you call this lambda
+
+139
+00:05:54.260 --> 00:05:57.455
+as an extension function on
+this StringBuilder variable.
+
+140
+00:05:57.455 --> 00:06:00.200
+As we've discussed, you
+call the variables of
+
+141
+00:06:00.200 --> 00:06:03.125
+extension function types
+as extension functions.
+
+142
+00:06:03.125 --> 00:06:06.320
+This is exactly what you
+do inside this function.
+
+143
+00:06:06.320 --> 00:06:08.990
+This line invokes the lambda body
+
+144
+00:06:08.990 --> 00:06:12.035
+and performs all the actions
+specified there.
+
+145
+00:06:12.035 --> 00:06:13.955
+In this case, it calls
+
+146
+00:06:13.955 --> 00:06:17.185
+a bad actions specified
+in the lambda.
+
+147
+00:06:17.185 --> 00:06:20.070
+Note that the
+buildString function
+
+148
+00:06:20.070 --> 00:06:22.020
+is also declared as in line.
+
+149
+00:06:22.020 --> 00:06:24.145
+Under the hood, the function body
+
+150
+00:06:24.145 --> 00:06:26.200
+and the lambda body
+will be aligned.
+
+151
+00:06:26.200 --> 00:06:29.830
+So no extra objects for storing
+lambda will be created.
+
+152
+00:06:29.830 --> 00:06:31.830
+The same aligning magic works
+
+153
+00:06:31.830 --> 00:06:33.735
+with lambdas with receivers.
+
+154
+00:06:33.735 --> 00:06:37.340
+Lambda with receiver is
+this syntactic thing for
+
+155
+00:06:37.340 --> 00:06:39.035
+the lambda that interprets
+
+156
+00:06:39.035 --> 00:06:41.500
+one of its parameters as these.
+
+157
+00:06:41.500 --> 00:06:44.770
+To some extent an
+extension function stores
+
+158
+00:06:44.770 --> 00:06:47.430
+one of its parameters
+as the receiver,
+
+159
+00:06:47.430 --> 00:06:50.110
+and the extension
+lambda does the same.
+
+160
+00:06:50.110 --> 00:06:53.320
+That's how with is implemented.
+
+161
+00:06:53.320 --> 00:06:54.890
+It's a very simple function,
+
+162
+00:06:54.890 --> 00:06:57.250
+it only calls its second argument
+
+163
+00:06:57.250 --> 00:06:58.520
+the lambda with receiver,
+
+164
+00:06:58.520 --> 00:07:00.880
+on its first argument
+the receiver itself.
+
+165
+00:07:00.880 --> 00:07:02.380
+You call block on
+
+166
+00:07:02.380 --> 00:07:05.870
+the receiver argument as
+an extension function.
+
+167
+00:07:06.000 --> 00:07:08.440
+Lambda with the receiver is
+
+168
+00:07:08.440 --> 00:07:10.000
+a very powerful mechanism that
+
+169
+00:07:10.000 --> 00:07:11.080
+allows us to create domain
+
+170
+00:07:11.080 --> 00:07:13.405
+specific languages
+just as in Kotlin.
+
+171
+00:07:13.405 --> 00:07:15.265
+The whole topic of
+how to do that,
+
+172
+00:07:15.265 --> 00:07:17.635
+we'll discuss in
+the next course in detail.
+
+173
+00:07:17.635 --> 00:07:20.140
+Right now, I only want
+to briefly mention
+
+174
+00:07:20.140 --> 00:07:21.610
+that and show you that
+
+175
+00:07:21.610 --> 00:07:24.160
+lambdas with receivers
+are really useful.
+
+176
+00:07:24.160 --> 00:07:26.680
+In Kotlin, you can
+define the sales
+
+177
+00:07:26.680 --> 00:07:29.360
+for any HTML like
+structure like HTML.
+
+178
+00:07:29.360 --> 00:07:31.010
+Everyone knows HTML.
+
+179
+00:07:31.010 --> 00:07:32.690
+That's why it is
+such a good example
+
+180
+00:07:32.690 --> 00:07:34.250
+to illustrate the idea.
+
+181
+00:07:34.250 --> 00:07:37.475
+This code looks like HTML
+but it's not a text,
+
+182
+00:07:37.475 --> 00:07:39.245
+it's a irregular coding code,
+
+183
+00:07:39.245 --> 00:07:42.275
+HTML and table
+a regular coding functions.
+
+184
+00:07:42.275 --> 00:07:44.750
+You can see how you mix
+the coding language
+
+185
+00:07:44.750 --> 00:07:47.960
+constructs like for
+loop with HTML syntax.
+
+186
+00:07:47.960 --> 00:07:49.865
+All these curly braces
+
+187
+00:07:49.865 --> 00:07:52.385
+denote in fact lambdas
+with receivers.
+
+188
+00:07:52.385 --> 00:07:54.220
+I have mentioned that
+
+189
+00:07:54.220 --> 00:07:56.015
+if the curly braces
+are called bold,
+
+190
+00:07:56.015 --> 00:07:57.845
+that means they surround lambdas.
+
+191
+00:07:57.845 --> 00:08:00.560
+Here they're also
+lambdas with receivers.
+
+192
+00:08:00.560 --> 00:08:02.975
+Here invoke table function
+of the receiver
+
+193
+00:08:02.975 --> 00:08:05.965
+of some specific type
+corresponding to HTML tag.
+
+194
+00:08:05.965 --> 00:08:07.600
+Later, we'll discuss in detail
+
+195
+00:08:07.600 --> 00:08:10.240
+how to define such functions.
+
+196
+00:08:10.240 --> 00:08:13.060
+Another example that
+employs lambdas
+
+197
+00:08:13.060 --> 00:08:15.445
+with receivers is
+gradual build scripts.
+
+198
+00:08:15.445 --> 00:08:18.290
+Now gradual script can
+be written in Kotlin.
+
+199
+00:08:18.290 --> 00:08:21.150
+You again can notice
+all the curly braces.
+
+200
+00:08:21.150 --> 00:08:24.310
+As you expect, they are
+lambdas with receivers.
+
+201
+00:08:24.310 --> 00:08:26.470
+You now know that
+lambda with receiver is
+
+202
+00:08:26.470 --> 00:08:28.960
+simply lambda with
+an implicit inside.
+
+203
+00:08:28.960 --> 00:08:31.810
+In this sense, it`s similar
+to an extension function.
+
+204
+00:08:31.810 --> 00:08:33.430
+Later in the next course,
+
+205
+00:08:33.430 --> 00:08:34.810
+we'll discuss how to use lambdas
+
+206
+00:08:34.810 --> 00:08:36.585
+with receivers to
+create these cells,
+
+207
+00:08:36.585 --> 00:08:39.005
+the main specific
+languages in Kotlin.
+
+208
+00:08:39.005 --> 00:08:42.490
+Next let's see what
+other functions that use
+
+209
+00:08:42.490 --> 00:08:44.410
+lambdas with receivers you
+
+210
+00:08:44.410 --> 00:08:47.480
+may find in the Kotlin
+standard library.

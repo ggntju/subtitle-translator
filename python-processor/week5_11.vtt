@@ -1,0 +1,1037 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.100
+In this video, you'll see
+
+2
+00:00:02.100 --> 00:00:04.020
+how the Kotlin
+type hierarchy looks,
+
+3
+00:00:04.020 --> 00:00:06.150
+what Nothing type is used for,
+
+4
+00:00:06.150 --> 00:00:08.490
+and why you can't
+use Unit instead.
+
+5
+00:00:08.490 --> 00:00:11.295
+Kotlin has the top
+type in the hierarchy;
+
+6
+00:00:11.295 --> 00:00:14.625
+Any, which is a super
+type of all types.
+
+7
+00:00:14.625 --> 00:00:16.830
+Kotlin also has a bottom type
+
+8
+00:00:16.830 --> 00:00:19.440
+which is a sub-type of
+all the other types.
+
+9
+00:00:19.440 --> 00:00:21.585
+This one is called Nothing.
+
+10
+00:00:21.585 --> 00:00:24.015
+Now, let's understand
+what it is used
+
+11
+00:00:24.015 --> 00:00:27.045
+for and why it's
+called like this.
+
+12
+00:00:27.045 --> 00:00:30.150
+The confusion is possible,
+because in Kotlin,
+
+13
+00:00:30.150 --> 00:00:33.355
+we have two new types:
+Unit and Nothing,
+
+14
+00:00:33.355 --> 00:00:35.195
+in comparison to Java's void.
+
+15
+00:00:35.195 --> 00:00:37.735
+Unit is used instead of void,
+
+16
+00:00:37.735 --> 00:00:40.760
+but Nothing has the name
+similar to void.
+
+17
+00:00:40.760 --> 00:00:44.015
+It might be unclear why
+these types are different.
+
+18
+00:00:44.015 --> 00:00:46.535
+Let's try to understand why.
+
+19
+00:00:46.535 --> 00:00:49.610
+First, let's start with the Unit.
+
+20
+00:00:49.610 --> 00:00:53.390
+In Kotlin, Unit is used
+always instead of void.
+
+21
+00:00:53.390 --> 00:00:55.320
+Whenever you use void in Java,
+
+22
+00:00:55.320 --> 00:00:56.955
+you use Unit in Kotlin.
+
+23
+00:00:56.955 --> 00:00:59.615
+It denotes that
+no meaningful value
+
+24
+00:00:59.615 --> 00:01:01.445
+is returned from this function.
+
+25
+00:01:01.445 --> 00:01:04.145
+These two syntactic forms
+are equivalent.
+
+26
+00:01:04.145 --> 00:01:06.740
+You can either specify
+unit explicitly,
+
+27
+00:01:06.740 --> 00:01:08.095
+which no one does,
+
+28
+00:01:08.095 --> 00:01:10.080
+or you can simply omit it.
+
+29
+00:01:10.080 --> 00:01:14.495
+At the Bytecode, unit is
+replaced with Java void.
+
+30
+00:01:14.495 --> 00:01:17.240
+In Kotlin, you always
+use it instead of
+
+31
+00:01:17.240 --> 00:01:20.750
+void for the function
+that has no return value.
+
+32
+00:01:20.750 --> 00:01:24.110
+Nothing is different
+to Unit and void.
+
+33
+00:01:24.110 --> 00:01:26.735
+It means, the function
+never returns.
+
+34
+00:01:26.735 --> 00:01:28.940
+You specify Nothing
+return type for
+
+35
+00:01:28.940 --> 00:01:31.295
+the function that only
+throws an exception.
+
+36
+00:01:31.295 --> 00:01:33.200
+In Kotlin, you can define
+
+37
+00:01:33.200 --> 00:01:34.610
+such a function and use it
+
+38
+00:01:34.610 --> 00:01:36.680
+instead of throwing an exception.
+
+39
+00:01:36.680 --> 00:01:39.890
+Imagine there is a specific
+for your use case exception,
+
+40
+00:01:39.890 --> 00:01:41.540
+and you're always thrown to
+
+41
+00:01:41.540 --> 00:01:43.295
+read different details
+in messages.
+
+42
+00:01:43.295 --> 00:01:45.470
+You can extract
+throwing this exception
+
+43
+00:01:45.470 --> 00:01:47.580
+into a function and later call
+
+44
+00:01:47.580 --> 00:01:49.455
+this function instead
+of all places
+
+45
+00:01:49.455 --> 00:01:52.280
+where you had to throw
+an exception explicitly.
+
+46
+00:01:52.280 --> 00:01:55.925
+If you specify that this
+function returns Nothing type,
+
+47
+00:01:55.925 --> 00:01:57.530
+then the Kotlin compiler
+
+48
+00:01:57.530 --> 00:01:59.870
+uses the information
+that this function
+
+49
+00:01:59.870 --> 00:02:01.580
+can't be completed normally for
+
+50
+00:02:01.580 --> 00:02:05.015
+type inference and while
+locating the dead code.
+
+51
+00:02:05.015 --> 00:02:09.350
+Unit and Nothing names come
+from functional programming.
+
+52
+00:02:09.350 --> 00:02:11.680
+If we look at their definitions,
+
+53
+00:02:11.680 --> 00:02:15.170
+Unit is the type that
+allows only one value,
+
+54
+00:02:15.170 --> 00:02:17.465
+while Nothing type has no values.
+
+55
+00:02:17.465 --> 00:02:20.180
+You can think of one-unit value
+
+56
+00:02:20.180 --> 00:02:21.650
+as of the fact that
+
+57
+00:02:21.650 --> 00:02:23.435
+the function is complete
+and successful,
+
+58
+00:02:23.435 --> 00:02:27.410
+and you can think of the fact
+that nothing has no values,
+
+59
+00:02:27.410 --> 00:02:29.915
+as this function never completes.
+
+60
+00:02:29.915 --> 00:02:31.520
+The function that only throws
+
+61
+00:02:31.520 --> 00:02:34.570
+an exception cannot
+complete normally.
+
+62
+00:02:34.570 --> 00:02:38.225
+Another way to put
+that is to say that
+
+63
+00:02:38.225 --> 00:02:39.620
+the function returning Unit
+
+64
+00:02:39.620 --> 00:02:41.375
+is expected to complete normally,
+
+65
+00:02:41.375 --> 00:02:42.710
+while the function returning
+
+66
+00:02:42.710 --> 00:02:45.950
+Nothing always
+completes abnormally.
+
+67
+00:02:45.950 --> 00:02:48.740
+If you write a
+function that has an
+
+68
+00:02:48.740 --> 00:02:51.020
+empty infinite while
+true loop inside,
+
+69
+00:02:51.020 --> 00:02:53.240
+this function also
+never completes,
+
+70
+00:02:53.240 --> 00:02:55.925
+and you can define Nothing
+return type for it.
+
+71
+00:02:55.925 --> 00:02:58.950
+Using an empty infinite loop
+is not really practical,
+
+72
+00:02:58.950 --> 00:03:01.400
+but the exception
+cases are helpful.
+
+73
+00:03:01.400 --> 00:03:03.890
+You can use an expression
+of Nothing type
+
+74
+00:03:03.890 --> 00:03:06.965
+anywhere where your otherwise
+would throw an exception.
+
+75
+00:03:06.965 --> 00:03:09.160
+For instance, as an if branch.
+
+76
+00:03:09.160 --> 00:03:11.815
+Here, if the condition
+is not satisfied,
+
+77
+00:03:11.815 --> 00:03:13.940
+you can throw an
+exception or call
+
+78
+00:03:13.940 --> 00:03:17.250
+the function that throws
+this specific exception.
+
+79
+00:03:17.290 --> 00:03:19.895
+Let's look at more examples
+
+80
+00:03:19.895 --> 00:03:21.865
+of expressions of Nothing type.
+
+81
+00:03:21.865 --> 00:03:24.890
+TODO is a function defined
+in the standard library.
+
+82
+00:03:24.890 --> 00:03:28.280
+It throws node implemented error.
+
+83
+00:03:28.280 --> 00:03:32.105
+You can use throw as a
+part of other expressions.
+
+84
+00:03:32.105 --> 00:03:34.310
+For example, it
+might be convenient
+
+85
+00:03:34.310 --> 00:03:36.835
+to use it as a part
+of elvis operator.
+
+86
+00:03:36.835 --> 00:03:39.155
+Here, you throw
+a meaningful exception
+
+87
+00:03:39.155 --> 00:03:41.885
+when the left-hand
+expression is null.
+
+88
+00:03:41.885 --> 00:03:44.930
+Fail can be your custom function
+
+89
+00:03:44.930 --> 00:03:46.775
+throwing your exception defined
+
+90
+00:03:46.775 --> 00:03:48.515
+for this specific use case.
+
+91
+00:03:48.515 --> 00:03:51.080
+Even return can be used as
+
+92
+00:03:51.080 --> 00:03:53.570
+a part of further
+expressions, it just works.
+
+93
+00:03:53.570 --> 00:03:55.880
+Under the hood,
+the compiler interprets
+
+94
+00:03:55.880 --> 00:03:58.850
+return as an expression
+of Nothing type.
+
+95
+00:03:58.850 --> 00:04:00.950
+The question to you, which of
+
+96
+00:04:00.950 --> 00:04:02.450
+the following expressions are
+
+97
+00:04:02.450 --> 00:04:04.490
+expressions of Nothing type?
+
+98
+00:04:04.490 --> 00:04:06.530
+When you throw an exception,
+
+99
+00:04:06.530 --> 00:04:08.975
+this expression itself
+has Nothing type.
+
+100
+00:04:08.975 --> 00:04:11.900
+When you call the function
+that throws an exception,
+
+101
+00:04:11.900 --> 00:04:13.940
+that is also an expression
+of Nothing type.
+
+102
+00:04:13.940 --> 00:04:16.410
+You can use a return as
+[inaudible] the expressions,
+
+103
+00:04:16.410 --> 00:04:18.330
+and then the compiler interprets.
+
+104
+00:04:18.330 --> 00:04:21.130
+It is also an expression
+of Nothing type.
+
+105
+00:04:21.200 --> 00:04:23.630
+Note that you can use
+
+106
+00:04:23.630 --> 00:04:26.150
+Kotlin unit as
+a standalone expression.
+
+107
+00:04:26.150 --> 00:04:29.030
+It refers to one instance
+of Unit type.
+
+108
+00:04:29.030 --> 00:04:31.960
+If you assign a function
+returning unit to a variable,
+
+109
+00:04:31.960 --> 00:04:34.835
+then this variable will
+store this unit value.
+
+110
+00:04:34.835 --> 00:04:36.335
+No one needs to assign it to
+
+111
+00:04:36.335 --> 00:04:39.080
+variable or explicitly
+return a unit,
+
+112
+00:04:39.080 --> 00:04:41.850
+since the compiler
+automatically enforce that when
+
+113
+00:04:41.850 --> 00:04:45.915
+no other values returned,
+but that's possible.
+
+114
+00:04:45.915 --> 00:04:50.270
+Now, let's discuss why we
+need a separate nothing type.
+
+115
+00:04:50.270 --> 00:04:52.730
+Why we can't simply use unit for
+
+116
+00:04:52.730 --> 00:04:55.100
+functions throwing
+exceptions or vice versa,
+
+117
+00:04:55.100 --> 00:04:57.065
+Nothing for functions
+completing normally.
+
+118
+00:04:57.065 --> 00:04:58.940
+At first, let's try to use
+
+119
+00:04:58.940 --> 00:05:00.710
+a report inside
+the if expression,
+
+120
+00:05:00.710 --> 00:05:03.355
+like we did for functions
+throwing exception.
+
+121
+00:05:03.355 --> 00:05:05.265
+It doesn't really make sense.
+
+122
+00:05:05.265 --> 00:05:07.410
+Report returns unit value,
+
+123
+00:05:07.410 --> 00:05:09.080
+and this unit value will
+
+124
+00:05:09.080 --> 00:05:11.240
+be stored in the answer variable.
+
+125
+00:05:11.240 --> 00:05:13.400
+Answer might then contain
+
+126
+00:05:13.400 --> 00:05:16.340
+either integer or
+unit as a result.
+
+127
+00:05:16.340 --> 00:05:19.505
+That's probably not what we want.
+
+128
+00:05:19.505 --> 00:05:23.630
+Now, let's imagine our fail
+function returns unit.
+
+129
+00:05:23.630 --> 00:05:26.690
+We define a function that
+throws an exception,
+
+130
+00:05:26.690 --> 00:05:30.215
+but we somehow forget to say
+that it returns nothing.
+
+131
+00:05:30.215 --> 00:05:32.375
+Reuse the regular syntax
+
+132
+00:05:32.375 --> 00:05:34.895
+and then it automatically
+returns unit.
+
+133
+00:05:34.895 --> 00:05:37.130
+What happens in this case?
+
+134
+00:05:37.130 --> 00:05:39.560
+We'll try to understand
+how the compiler
+
+135
+00:05:39.560 --> 00:05:41.970
+infers the type of
+the resulting expression,
+
+136
+00:05:41.970 --> 00:05:43.970
+and we'll use
+their representation
+
+137
+00:05:43.970 --> 00:05:45.740
+of type hierarchy for that.
+
+138
+00:05:45.740 --> 00:05:47.510
+Let's see how the compiler
+
+139
+00:05:47.510 --> 00:05:50.375
+enforce the type of
+the answer variable.
+
+140
+00:05:50.375 --> 00:05:53.000
+It should be a super type of
+
+141
+00:05:53.000 --> 00:05:56.270
+expressions into first branch
+and to the second branch.
+
+142
+00:05:56.270 --> 00:06:00.095
+At first, the compiler
+analyzes the integer constant.
+
+143
+00:06:00.095 --> 00:06:02.075
+It has the Int type.
+
+144
+00:06:02.075 --> 00:06:05.285
+The fail function, in
+our example, returns unit.
+
+145
+00:06:05.285 --> 00:06:08.120
+The compiler enforce
+the super type
+
+146
+00:06:08.120 --> 00:06:11.430
+for Int and unit, which is any.
+
+147
+00:06:11.430 --> 00:06:15.560
+A function returning unit
+can be a sign to a variable.
+
+148
+00:06:15.560 --> 00:06:18.620
+Then these variables
+terse Kotlin unit value.
+
+149
+00:06:18.620 --> 00:06:21.470
+The unit value can't be
+stored in a variable of
+
+150
+00:06:21.470 --> 00:06:25.400
+Int type but can be easily
+stored in any variable.
+
+151
+00:06:25.400 --> 00:06:28.880
+That's why the compiler
+infers any as the type of
+
+152
+00:06:28.880 --> 00:06:32.975
+this expression which totally
+is not what we want here.
+
+153
+00:06:32.975 --> 00:06:37.730
+It happens if we use unit
+as the return type of fail.
+
+154
+00:06:37.730 --> 00:06:42.755
+Now, let's correctly use
+Nothing and see what changes.
+
+155
+00:06:42.755 --> 00:06:46.070
+The type of the first
+expression is again Int.
+
+156
+00:06:46.070 --> 00:06:47.510
+In the second branch,
+
+157
+00:06:47.510 --> 00:06:51.305
+we now have failed call
+which has Nothing type.
+
+158
+00:06:51.305 --> 00:06:54.905
+Since Nothing is a sub-type
+of any other type,
+
+159
+00:06:54.905 --> 00:06:58.040
+that allows the compiler to
+infer Int as the result.
+
+160
+00:06:58.040 --> 00:06:59.690
+It's the right value
+
+161
+00:06:59.690 --> 00:07:01.895
+because we're always
+throwing an exception,
+
+162
+00:07:01.895 --> 00:07:03.785
+if condition is not satisfied.
+
+163
+00:07:03.785 --> 00:07:05.720
+So only integer value
+
+164
+00:07:05.720 --> 00:07:08.105
+can be stored in
+the answer variable.
+
+165
+00:07:08.105 --> 00:07:11.555
+The Kotlin type system
+allows us to express that.
+
+166
+00:07:11.555 --> 00:07:13.760
+That's why it's great that we
+
+167
+00:07:13.760 --> 00:07:15.635
+have the Nothing type
+in the language.
+
+168
+00:07:15.635 --> 00:07:18.310
+It allows us to use
+expressions of Nothing type,
+
+169
+00:07:18.310 --> 00:07:21.275
+extracts throwing an
+exception into function
+
+170
+00:07:21.275 --> 00:07:25.370
+and use this function as
+part of other expressions.
+
+171
+00:07:25.370 --> 00:07:28.250
+Nothing is replaced by void.
+
+172
+00:07:28.250 --> 00:07:30.305
+If your function returns nothing,
+
+173
+00:07:30.305 --> 00:07:31.520
+then at the Bytecode,
+
+174
+00:07:31.520 --> 00:07:33.110
+it will still return void
+
+175
+00:07:33.110 --> 00:07:35.955
+because there is
+no Nothing type at JVM.
+
+176
+00:07:35.955 --> 00:07:37.590
+That means that from Java,
+
+177
+00:07:37.590 --> 00:07:40.520
+we use functions returning
+Nothing as returning void.
+
+178
+00:07:40.520 --> 00:07:42.095
+In Kotlin, you use
+
+179
+00:07:42.095 --> 00:07:45.300
+all the bunch of
+convenient Nothing features.
+
+180
+00:07:45.410 --> 00:07:49.365
+Now, you can better
+understand the tab hierarchy.
+
+181
+00:07:49.365 --> 00:07:50.790
+Any is the top type,
+
+182
+00:07:50.790 --> 00:07:52.560
+nothing is the bottom type.
+
+183
+00:07:52.560 --> 00:07:55.040
+However, that's not that easy
+
+184
+00:07:55.040 --> 00:07:57.545
+because we also have
+nullable types.
+
+185
+00:07:57.545 --> 00:07:59.585
+User type is a sub-type of
+
+186
+00:07:59.585 --> 00:08:01.670
+nullable user type because it can
+
+187
+00:08:01.670 --> 00:08:03.755
+assign user expression
+to a variable of
+
+188
+00:08:03.755 --> 00:08:06.455
+nullable user type,
+but not vice-versa.
+
+189
+00:08:06.455 --> 00:08:10.945
+Thus, the correct top type
+is nullable any, not any.
+
+190
+00:08:10.945 --> 00:08:13.890
+An interesting question here is,
+
+191
+00:08:13.890 --> 00:08:16.770
+what means these
+nullable Nothing type?
+
+192
+00:08:16.770 --> 00:08:18.660
+Think of what is
+
+193
+00:08:18.660 --> 00:08:21.730
+the simplest expression
+of nullable Nothing type.
+
+194
+00:08:21.730 --> 00:08:24.020
+The answer is null constant.
+
+195
+00:08:24.020 --> 00:08:27.850
+Say, you define a variable
+and initialize it with null.
+
+196
+00:08:27.850 --> 00:08:30.330
+Then if you try to assign
+a new value to it,
+
+197
+00:08:30.330 --> 00:08:31.870
+you bump into an arrow
+
+198
+00:08:31.870 --> 00:08:33.745
+saying something
+about type mismatch.
+
+199
+00:08:33.745 --> 00:08:35.500
+In first type is user,
+
+200
+00:08:35.500 --> 00:08:37.870
+but nullable nothing
+was expected.
+
+201
+00:08:37.870 --> 00:08:40.460
+You can know to
+the inferred nullable Nothing
+
+202
+00:08:40.460 --> 00:08:42.025
+for user variable here.
+
+203
+00:08:42.025 --> 00:08:44.350
+The same thing happens
+when you create
+
+204
+00:08:44.350 --> 00:08:47.450
+a list and store null inside.
+
+205
+00:08:47.530 --> 00:08:50.330
+Nullable Nothing and list of
+
+206
+00:08:50.330 --> 00:08:53.165
+nullable Nothing types are
+inferred by the compiler.
+
+207
+00:08:53.165 --> 00:08:55.550
+If you think about
+it, that makes sense.
+
+208
+00:08:55.550 --> 00:08:57.980
+You can assign null as well as
+
+209
+00:08:57.980 --> 00:09:01.490
+the variable that stores null
+to any other nullable type.
+
+210
+00:09:01.490 --> 00:09:03.865
+If you have a variable
+of nullable Int,
+
+211
+00:09:03.865 --> 00:09:05.680
+you can assign null there.
+
+212
+00:09:05.680 --> 00:09:08.125
+Having a variable
+of nullable nothing
+
+213
+00:09:08.125 --> 00:09:09.479
+is not really practical,
+
+214
+00:09:09.479 --> 00:09:11.950
+but sometimes you can
+see similar errors,
+
+215
+00:09:11.950 --> 00:09:13.880
+so it's good to know how it
+
+216
+00:09:13.880 --> 00:09:16.280
+works from the compiler
+point of view.
+
+217
+00:09:16.280 --> 00:09:19.670
+There is an easy solution
+that fixes this example.
+
+218
+00:09:19.670 --> 00:09:21.920
+You specify the variable
+type explicitly
+
+219
+00:09:21.920 --> 00:09:24.650
+whenever you want to
+initialize it to read null.
+
+220
+00:09:24.650 --> 00:09:27.740
+Then it has the right type,
+the type you want.
+
+221
+00:09:27.740 --> 00:09:30.920
+Now you know why Unit can't
+be instead of Nothing,
+
+222
+00:09:30.920 --> 00:09:32.450
+and that the only expression
+
+223
+00:09:32.450 --> 00:09:35.165
+nullable Nothing type
+is the null constant.
+
+224
+00:09:35.165 --> 00:09:36.965
+Next, we will discuss how
+
+225
+00:09:36.965 --> 00:09:40.800
+Kotlin nullable types
+interact with Java types.
